@@ -3,7 +3,7 @@
  * Atomic OS WASH command
  *
  * Remove a file
- * 
+ *
  * This command is currently limited to removing files in the current directory
  *
  * @author Scott Elcomb <psema4@gmail.com (http://www.psema4.com)

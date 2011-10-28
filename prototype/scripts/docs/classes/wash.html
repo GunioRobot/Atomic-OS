@@ -154,32 +154,32 @@ var HxWash = HxProcess.extend({
 </script><script type="text/javascript">var currentPg = 'docs';
 
 function show(pg) {
-  if (pg !== 'docs')  $('#doc-container').fadeOut('slow');  
-  if (pg !== 'tests') $('#test-container').fadeOut('slow');  
-  if (pg !== 'codes') $('#src-container').fadeOut('slow');  
-  
-  switch(pg) {  
-    case "tests":  
-    $('#test-container').fadeIn('slow');  
-  break;  
-  
-  case "codes":  
-    $('#src-container').fadeIn('slow');  
-  break;  
-  
-  case "docs":  
-  default:  
-    $('#doc-container').fadeIn('slow');  
-  
-  }  
-  
+  if (pg !== 'docs')  $('#doc-container').fadeOut('slow');
+  if (pg !== 'tests') $('#test-container').fadeOut('slow');
+  if (pg !== 'codes') $('#src-container').fadeOut('slow');
+
+  switch(pg) {
+    case "tests":
+    $('#test-container').fadeIn('slow');
+  break;
+
+  case "codes":
+    $('#src-container').fadeIn('slow');
+  break;
+
+  case "docs":
+  default:
+    $('#doc-container').fadeIn('slow');
+
+  }
+
   currentPg = pg;
 }
 
 $(document).ready(function() {
-  show('docs');  
-  SyntaxHighlighter.all();  
-  
+  show('docs');
+  SyntaxHighlighter.all();
+
   module("HxWash");
 test("load", function() {
     var myWash = new HxWash();

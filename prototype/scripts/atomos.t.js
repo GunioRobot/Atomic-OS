@@ -14,57 +14,57 @@
   var initializing = false, fnTest = /xyz/.test(function(){xyz;}) ? /\b_super\b/ : /.*/;
   // The base Class implementation (does nothing)
   this.Class = function(){};
-  
+
   // Create a new Class that inherits from this class
   Class.extend = function(prop) {
     var _super = this.prototype;
-    
+
     // Instantiate a base class (but only create the instance,
     // don't run the init constructor)
     initializing = true;
     var prototype = new this();
     initializing = false;
-    
+
     // Copy the properties over onto the new prototype
     for (var name in prop) {
       // Check if we're overwriting an existing function
-      prototype[name] = typeof prop[name] == "function" && 
+      prototype[name] = typeof prop[name] == "function" &&
         typeof _super[name] == "function" && fnTest.test(prop[name]) ?
         (function(name, fn){
           return function() {
             var tmp = this._super;
-            
+
             // Add a new ._super() method that is the same method
             // but on the super-class
             this._super = _super[name];
-            
+
             // The method only need to be bound temporarily, so we
             // remove it when we're done executing
-            var ret = fn.apply(this, arguments);        
+            var ret = fn.apply(this, arguments);
             this._super = tmp;
-            
+
             return ret;
           };
         })(name, prop[name]) :
         prop[name];
     }
-    
+
     // The dummy class constructor
     function Class() {
       // All construction is actually done in the init method
       if ( !initializing && this.init )
         this.init.apply(this, arguments);
     }
-    
+
     // Populate our constructed prototype object
     Class.prototype = prototype;
-    
+
     // Enforce the constructor to be what we expect
     Class.prototype.constructor = Class;
 
     // And make this class extendable
     Class.extend = arguments.callee;
-    
+
     return Class;
   };
 })();
@@ -187,7 +187,7 @@ system.bin.cd = {
             var path = (args instanceof Array) ? args.shift() : args;
             var handled = false;
 
-            // preprocess path, handle 
+            // preprocess path, handle
             if (path == '-') {               // swap current working directory with previous working directory
                 var tmp = system.env.pwd;
                 system.env.pwd = system.env.cwd;
@@ -802,7 +802,7 @@ system.bin.pwd = {
  * Atomic OS WASH command
  *
  * Remove a file
- * 
+ *
  * This command is currently limited to removing files in the current directory
  *
  * @author Scott Elcomb <psema4@gmail.com (http://www.psema4.com)
@@ -1814,7 +1814,7 @@ var HxPanel = HxJSFS.extend({
 
         //FIXME: convert this nodes name to something the DOM can use
         if (this.name.match(/\//)) {
-            this.name = system.fs.basename(this.name); 
+            this.name = system.fs.basename(this.name);
         }
 
         var html = '<div id="' + this.name + '" class="ui-panel"></div>';
@@ -1960,7 +1960,7 @@ var HxCommandWindow = HxWindow.extend({
 
         var output = "<div id='" + this.name + "-h-output'><textarea id='" + this.name + "-output' class='rounded'>Welcome to WASH, the Web Application SHell\n</textarea></div>";
 
-        var input = "<span id='" + this.name + "-prompt'>" + system.env.cwd + " $ </span>" + 
+        var input = "<span id='" + this.name + "-prompt'>" + system.env.cwd + " $ </span>" +
                     "<div id='" + this.name + "-h-input'><input id='" + this.name + "-input' type='text' /></div>" +
                     "<button id='" + this.name + "-btn'>ENTER</button>";
 
@@ -2118,7 +2118,7 @@ var HxEditWindow = HxWindow.extend({
 
         var input = "<span style='position: absolute; top: 37px; left: 215px; font-size: 14px; font-family: verdana;'>Filename:</span><div id='" + this.name + "-h-filename'><input id='" + this.name + "-filename' type='text' /></div>" +
                     "<button id='" + this.name + "-btnnew'  class='ui-btn' style='position: absolute; top: 35px; left: 10px;'>NEW</button>" +
-                    "<button id='" + this.name + "-btnload' class='ui-btn disabled' style='position: absolute; top: 35px; left: 80px;'>LOAD</button>" + 
+                    "<button id='" + this.name + "-btnload' class='ui-btn disabled' style='position: absolute; top: 35px; left: 80px;'>LOAD</button>" +
                     "<button id='" + this.name + "-btnsave' class='ui-btn disabled' style='position: absolute; top: 35px; left: 150px;'>SAVE</button>";
 
         var ui = output + input;

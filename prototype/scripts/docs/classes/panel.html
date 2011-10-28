@@ -70,7 +70,7 @@ var HxPanel = HxJSFS.extend({
 
         //FIXME: convert this nodes name to something the DOM can use
         if (this.name.match(/\//)) {
-            this.name = system.fs.basename(this.name); 
+            this.name = system.fs.basename(this.name);
         }
 
         var html = '<div id="' + this.name + '" class="ui-panel"></div>';
@@ -145,32 +145,32 @@ var HxPanel = HxJSFS.extend({
 </script><script type="text/javascript">var currentPg = 'docs';
 
 function show(pg) {
-  if (pg !== 'docs')  $('#doc-container').fadeOut('slow');  
-  if (pg !== 'tests') $('#test-container').fadeOut('slow');  
-  if (pg !== 'codes') $('#src-container').fadeOut('slow');  
-  
-  switch(pg) {  
-    case "tests":  
-    $('#test-container').fadeIn('slow');  
-  break;  
-  
-  case "codes":  
-    $('#src-container').fadeIn('slow');  
-  break;  
-  
-  case "docs":  
-  default:  
-    $('#doc-container').fadeIn('slow');  
-  
-  }  
-  
+  if (pg !== 'docs')  $('#doc-container').fadeOut('slow');
+  if (pg !== 'tests') $('#test-container').fadeOut('slow');
+  if (pg !== 'codes') $('#src-container').fadeOut('slow');
+
+  switch(pg) {
+    case "tests":
+    $('#test-container').fadeIn('slow');
+  break;
+
+  case "codes":
+    $('#src-container').fadeIn('slow');
+  break;
+
+  case "docs":
+  default:
+    $('#doc-container').fadeIn('slow');
+
+  }
+
   currentPg = pg;
 }
 
 $(document).ready(function() {
-  show('docs');  
-  SyntaxHighlighter.all();  
-  
+  show('docs');
+  SyntaxHighlighter.all();
+
   module("HxPanel");
 test("load", function() {
     var myfs = new HxJSFS({
@@ -264,7 +264,7 @@ var HxPanel = HxJSFS.extend({
 
         //FIXME: convert this nodes name to something the DOM can use
         if (this.name.match(/\//)) {
-            this.name = system.fs.basename(this.name); 
+            this.name = system.fs.basename(this.name);
         }
 
         var html = '&lt;div id=&quot;' + this.name + '&quot; class=&quot;ui-panel&quot;&gt;&lt;/div&gt;';

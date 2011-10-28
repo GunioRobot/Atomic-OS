@@ -88,7 +88,7 @@ system.bin.cd = {
             var path = (args instanceof Array) ? args.shift() : args;
             var handled = false;
 
-            // preprocess path, handle 
+            // preprocess path, handle
             if (path == '-') {               // swap current working directory with previous working directory
                 var tmp = system.env.pwd;
                 system.env.pwd = system.env.cwd;
@@ -166,32 +166,32 @@ system.bin.cd = {
 </script><script type="text/javascript">var currentPg = 'docs';
 
 function show(pg) {
-  if (pg !== 'docs')  $('#doc-container').fadeOut('slow');  
-  if (pg !== 'tests') $('#test-container').fadeOut('slow');  
-  if (pg !== 'codes') $('#src-container').fadeOut('slow');  
-  
-  switch(pg) {  
-    case "tests":  
-    $('#test-container').fadeIn('slow');  
-  break;  
-  
-  case "codes":  
-    $('#src-container').fadeIn('slow');  
-  break;  
-  
-  case "docs":  
-  default:  
-    $('#doc-container').fadeIn('slow');  
-  
-  }  
-  
+  if (pg !== 'docs')  $('#doc-container').fadeOut('slow');
+  if (pg !== 'tests') $('#test-container').fadeOut('slow');
+  if (pg !== 'codes') $('#src-container').fadeOut('slow');
+
+  switch(pg) {
+    case "tests":
+    $('#test-container').fadeIn('slow');
+  break;
+
+  case "codes":
+    $('#src-container').fadeIn('slow');
+  break;
+
+  case "docs":
+  default:
+    $('#doc-container').fadeIn('slow');
+
+  }
+
   currentPg = pg;
 }
 
 $(document).ready(function() {
-  show('docs');  
-  SyntaxHighlighter.all();  
-  
+  show('docs');
+  SyntaxHighlighter.all();
+
   module("cd");
 test("load", function() {
     ok(system && system.bin, "System exists and has a bin");
@@ -270,7 +270,7 @@ system.bin.cd = {
             var path = (args instanceof Array) ? args.shift() : args;
             var handled = false;
 
-            // preprocess path, handle 
+            // preprocess path, handle
             if (path == '-') {               // swap current working directory with previous working directory
                 var tmp = system.env.pwd;
                 system.env.pwd = system.env.cwd;

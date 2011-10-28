@@ -14,7 +14,7 @@ var HxCommandWindow = HxWindow.extend({
 
         var output = "<div id='" + this.name + "-h-output'><textarea id='" + this.name + "-output' class='rounded'>Welcome to WASH, the Web Application SHell\n</textarea></div>";
 
-        var input = "<span id='" + this.name + "-prompt'>" + system.env.cwd + " $ </span>" + 
+        var input = "<span id='" + this.name + "-prompt'>" + system.env.cwd + " $ </span>" +
                     "<div id='" + this.name + "-h-input'><input id='" + this.name + "-input' type='text' /></div>" +
                     "<button id='" + this.name + "-btn'>ENTER</button>";
 

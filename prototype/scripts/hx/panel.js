@@ -27,7 +27,7 @@ var HxPanel = HxJSFS.extend({
 
         //FIXME: convert this nodes name to something the DOM can use
         if (this.name.match(/\//)) {
-            this.name = system.fs.basename(this.name); 
+            this.name = system.fs.basename(this.name);
         }
 
         var html = '<div id="' + this.name + '" class="ui-panel"></div>';

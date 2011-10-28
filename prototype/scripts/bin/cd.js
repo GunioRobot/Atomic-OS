@@ -45,7 +45,7 @@ system.bin.cd = {
             var path = (args instanceof Array) ? args.shift() : args;
             var handled = false;
 
-            // preprocess path, handle 
+            // preprocess path, handle
             if (path == '-') {               // swap current working directory with previous working directory
                 var tmp = system.env.pwd;
                 system.env.pwd = system.env.cwd;
